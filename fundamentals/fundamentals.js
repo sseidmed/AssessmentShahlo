@@ -42,7 +42,7 @@ function minMax (values) {
     maxNum = values[0] 
   }
 
-  // select the minimum from both numbers
+  // select the minimum and maximum from both numbers
   for (let element of values) {
     if (typeof(element) === 'number') {
       minNum = Math.min(minNum, element)
