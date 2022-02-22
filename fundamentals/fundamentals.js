@@ -42,6 +42,7 @@ function minMax (values) {
     maxNum = values[0] 
   }
 
+  // select the minimum from both numbers
   for (let element of values) {
     if (typeof(element) === 'number') {
       minNum = Math.min(minNum, element)
@@ -69,6 +70,7 @@ console.log(minMax([1, 2, 3, 4, 5]))
 */
 
 function sortObjects (values, sortBy) {
+  // sorts from low to high
   const sorted = function(a, b)  {
     if (a[sortBy] < b[sortBy]) {
       return -1;
