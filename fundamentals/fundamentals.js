@@ -20,8 +20,42 @@
 */
 
 function minMax (values) {
+  // create empty result array
+  let result = []
+
+  // check if values array is empty
+  if (values.length === 0) return values
+
+  // check if values array have one element
+  if (values.length === 1 && typeof(values[0]) === 'number') {
+    result.push(values[0], values[0])
+    console.log(result)
+    return result
+  }
+
+  // keep track of min and max values at each iteration
+  let minNum = 0
+  let maxNum = 0
+
+  if (typeof(values[0]) === 'number') {
+    minNum = values[0] 
+    maxNum = values[0] 
+  }
+
+  for (let element of values) {
+    if (typeof(element) === 'number') {
+      minNum = Math.min(minNum, element)
+      maxNum = Math.max(maxNum, element)
+    }
+  }
+
+  result.push(minNum, maxNum) 
+  return result
+
 
 }
+
+console.log(minMax([1, 2, 3, 4, 5]))
 
 
 
@@ -35,8 +69,23 @@ function minMax (values) {
 */
 
 function sortObjects (values, sortBy) {
-
+  const sorted = function(a, b)  {
+    if (a[sortBy] < b[sortBy]) {
+      return -1;
+    }
+    if (a[sortBy] > b[sortBy]) {
+      return 1;
+    }
+    return 0;
+  }
+  return values.sort(sorted)
 }
+
+let input = [{ text: 'Kim', value: '1'}, { text: 'John', value: 3}, { text: 'Sally', value: 2}]
+console.log(sortObjects(input, 'value'))
+
+// I referenced sort() section on MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
 
 
 
